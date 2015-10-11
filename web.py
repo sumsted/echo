@@ -15,6 +15,13 @@ def get_messages():
     return {'messages': messages}
 
 
+@get('/clear')
+def get_messages():
+    global messages
+    messages = [{'name': 'echo', 'message': 'make what you want of this'}]
+    return {'messages': messages}
+
+
 @post('/message')
 def post_message():
     global messages
