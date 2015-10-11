@@ -1,5 +1,5 @@
 import os
-from bottle import run, template, get, post, request
+from bottle import run, get, post, request
 
 
 messages = []
@@ -7,7 +7,7 @@ messages = []
 
 @get('/')
 def get_index():
-    return 'hi'
+    return 'welcome to echo'
 
 
 @get('/messages')
@@ -22,9 +22,9 @@ def post_message():
     try:
         message = request.json
         if message is None:
-            message = {'message': 'Huh, say something?'}
+            message = {'user': 'echo', 'message': 'Huh, say something?'}
     except Exception as e:
-        message = {'message': 'Huh, what?'}
+        message = {'user': 'echo', 'message': 'Huh, what?'}
     messages.append(message)
     messages = messages[-10:]
     return {'messages': messages}
