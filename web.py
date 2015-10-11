@@ -7,7 +7,7 @@ messages = []
 
 @get('/')
 def get_index():
-    return template('index', result='')
+    return 'hi'
 
 
 @get('/messages')
